@@ -19,19 +19,19 @@ from simulator import load_config, load_portfolio, run_simulation, run_stress_te
 
 
 def compute_metrics(losses, confidence):
-    """Calcule les métriques de risque sur un vecteur de pertes simulées.
+    """Compute risk metrics for a vector of simulated losses.
 
     Parameters
     ----------
     losses : np.ndarray
-        Vecteur des pertes totales par scénario.
+        Vector of total losses per scenario.
     confidence : float
-        Niveau de confiance (ex. 0.99).
+        Confidence level (e.g. 0.99).
 
     Returns
     -------
     dict
-        Dictionnaire avec Expected Loss, VaR et ES.
+        Dictionary with Expected Loss, VaR and ES.
     """
     var = np.percentile(losses, confidence * 100)
     return {
@@ -42,18 +42,18 @@ def compute_metrics(losses, confidence):
 
 
 def build_dashboard(portfolio, base_losses, stress_losses, cfg):
-    """Construit et exporte le dashboard Plotly en HTML.
+    """Builds and exports the Plotly dashboard to HTML.
 
     Parameters
     ----------
     portfolio : pd.DataFrame
-        DataFrame du portefeuille (colonnes Sector, EAD, etc.).
+        Portfolio DataFrame (columns: Sector, EAD, etc.).
     base_losses : np.ndarray
-        Pertes simulées — scénario de base.
+        Simulated losses — base case.
     stress_losses : np.ndarray
-        Pertes simulées — scénario de stress.
+        Simulated losses — stress case.
     cfg : dict
-        Configuration chargée depuis config.yaml.
+        Configuration loaded from config.yaml.
     """
     conf = cfg["simulation"]["confidence_level"]
     rho_base = cfg["correlation"]["rho_base"]
@@ -192,7 +192,8 @@ def build_dashboard(portfolio, base_losses, stress_losses, cfg):
     )
 
     output_file = "dashboard.html"
-    fig.write_html(output_file, include_plotlyjs=True)
+    # Use CDN for plotly.js to keep generated HTML small (improves GitHub language stats)
+    fig.write_html(output_file, include_plotlyjs='cdn')
     print(f"\nDashboard saved: {output_file}")
 
 

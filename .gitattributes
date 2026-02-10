@@ -1,0 +1,6 @@
+# Mark generated/binary outputs as linguist-generated so GitHub language stats ignore them
+dashboard.html linguist-generated=true
+stress_test_comparison.png linguist-generated=true
+*.png linguist-generated=true
+portfolio.csv linguist-generated=true
+dist/** linguist-generated=true
