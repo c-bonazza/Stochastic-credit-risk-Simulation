@@ -1,0 +1,18 @@
+# =============================================================================
+# Monte Carlo Credit Risk Simulation — Configuration
+# =============================================================================
+
+simulation:
+  n_simulations: 100_000        # Number of Monte Carlo scenarios
+  confidence_level: 0.99        # Confidence level for VaR and ES
+
+correlation:
+  rho_base: 0.15                # Systemic correlation — base case
+  rho_stress: 0.40              # Systemic correlation — stress case
+
+stress_test:
+  lgd_multiplier: 1.5           # LGD multiplier under stress (Liquidity Crunch)
+  label: "Liquidity Crunch"     # Stress scenario name
+
+portfolio:
+  file: "portfolio.csv"         # Portfolio source file
