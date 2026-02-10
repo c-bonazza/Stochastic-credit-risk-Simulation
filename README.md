@@ -137,4 +137,5 @@ stress_test:
 
 - Vasicek, O.A. (2002). *The Distribution of Loan Portfolio Value.* Risk, December 2002.
 - Artzner, P., Delbaen, F., Eber, J.-M., Heath, D. (1999). *Coherent Measures of Risk.* Mathematical Finance, 9(3), 203–228.
--- Basel Committee on Banking Supervision (2006). *International Convergence of Capital Measurement and Capital Standards* (Basel II).
+- Basel Committee on Banking Supervision (2006). *International Convergence of Capital Measurement and Capital Standards* (Basel II).
+
